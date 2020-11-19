@@ -1,0 +1,18 @@
+<h1> Edit </h1>
+<%= link_to :back, doctors_path %>
+<%= form_with model: @doctor, url: { action: 'update' }, html: { class: "nifty_form" } do |f| %>
+    <p>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </p>
+    <p>
+      <%= f.label :gender %>
+      <%= f.select(:gender, [['Male', 'male'], ['Female', 'female']]) %>
+    </p>
+    <p>
+      <%= f.label :contact_no %>
+      <%= f.text_field(:contact_no, type: :integer) %>
+    </p>
+  </ul>
+  <%= f.submit :update %>
+<% end %>

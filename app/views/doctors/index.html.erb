@@ -1,0 +1,20 @@
+<h1> DOCTORS </h1>
+<p style="margin: 5px;"><%= link_to 'Add doctor', new_doctor_path%></p>
+<table style="border: 1px solid #000000; margin: 5px; text-align: center;">
+  <tr>
+    <th>Name</th>
+    <th>Gender</th>
+    <th>Contact No</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+  <% @doctors.each do |doctor| %>
+    <tr>
+      <td><%= "#{doctor.name}" %></td>
+      <td><%= "#{doctor.gender}" %></td>
+      <td><%= "#{doctor.contact_no}" %></td>
+      <td><%= link_to :edit, edit_doctor_path(doctor.id) %></td>
+      <td><%= link_to "Delete", doctor, method: :delete %></td>
+    </tr>
+    <% end %>
+</table>
