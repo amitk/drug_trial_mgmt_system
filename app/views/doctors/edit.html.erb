@@ -1,6 +1,6 @@
-<h1> Edit </h1>
+<h1> Edit Doctor </h1>
 <%= link_to :back, doctors_path %>
-<%= form_with model: @doctor, url: { action: 'update' }, html: { class: "nifty_form" } do |f| %>
+<%= form_with(model: @doctor, url: doctor_path(@doctor), method: 'patch') do |f| %>
     <p>
       <%= f.label :name %>
       <%= f.text_field :name %>

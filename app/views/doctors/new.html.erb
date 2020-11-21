@@ -1,6 +1,6 @@
 <h1> New Doctors Page </h1>
 
-<%= form_for @doctor, url: { action: 'create' }, html: { class: "nifty_form" } do |f| %>
+<%= form_with(model: @doctor) do |f| %>
     <p>
       <%= f.label :name %>
       <%= f.text_field :name %>
