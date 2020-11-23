@@ -6,7 +6,9 @@ class DoctorsController < ApplicationController
   end
 
   def new
-    @doctor = Doctor.new
+    @doctor ||= Doctor.new
+    @var = "hello"
+
   end
 
   def edit
@@ -16,16 +18,20 @@ class DoctorsController < ApplicationController
   end
 
   def create
-    doctor = Doctor.new(permit_params)
-    if doctor.save
+    @doctor = Doctor.new(permit_params)
+    if @doctor.save
       redirect_to doctors_path
     else
+      render :new
     end
   end
 
   def update
-    @doctor.update(permit_params)
-    redirect_to doctors_path
+    if @doctor.update(permit_params)
+      redirect_to doctors_path
+    else
+      render :edit
+    end
   end
 
   def destroy

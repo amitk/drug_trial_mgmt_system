@@ -1,6 +1,14 @@
 <h1> Edit Doctor </h1>
 <%= link_to :back, doctors_path %>
-<%= form_with(model: @doctor, url: doctor_path(@doctor), method: 'patch') do |f| %>
+<% if @doctor.errors.any? %>
+  <h4> Errors </h4>
+  <ul>
+    <% @doctor.errors.full_messages.each do |message|%>
+      <li><%= message %> </li>
+    <%end%>
+  </ul>
+<%end%>
+<%= form_with(model: @doctor, url: doctor_path(@doctor), method: 'patch', local: true) do |f| %>
     <p>
       <%= f.label :name %>
       <%= f.text_field :name %>

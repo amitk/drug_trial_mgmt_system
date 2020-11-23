@@ -8,5 +8,7 @@
     <th>Edit</th>
     <th>Delete</th>
   </tr>
-  <%= render partial: 'doctor', collection: @doctors %>
+  <% @doctors.each do |doctor| %>
+    <%= render partial: 'doctor', locals: { doctor: doctor } %>
+  <% end %>
 </table>
