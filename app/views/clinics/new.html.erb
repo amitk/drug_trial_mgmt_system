@@ -1,0 +1,27 @@
+<h1> New Clinic Page </h1>
+
+<% if @clinic.errors.any? %>
+  <h4> Errors </h4>
+  <ul>
+    <% @clinic.errors.full_messages.each do |message|%>
+      <li><%= message %> </li>
+    <%end%>
+  </ul>
+<%end%>
+<%= select_tag "colors", raw("<option>Red</option><option>Green</option><option>Blue</option>") %>
+<%= form_with(model: @clinic, local: true) do |f| %>
+    <p>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </p>
+    <p>
+      <%= f.label :location %>
+      <%= f.text_field :location %>
+    </p>
+    <p>
+      <%= f.label "Doctors" %>
+      <%= f.select("doctor_ids[]", options_for_select(@doctors.collect{|doc| [doc.name, doc.id]}, @clinic.doctors.collect{|doc| [doc.id]}), {:multiple => true, include_blank: true }) %> 
+    </p>
+  </ul>
+  <%= f.submit :create %>
+<% end %>

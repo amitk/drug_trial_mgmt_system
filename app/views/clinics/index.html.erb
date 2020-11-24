@@ -1,0 +1,16 @@
+<h1> CLINICS </h1>
+<p style="margin: 5px;"><%= link_to 'Add clinic', new_clinic_path%></p>
+<table style="border: 1px solid #000000; margin: 5px; text-align: center;">
+  <tr>
+    <th>Name</th>
+    <th>Location</th>
+  </tr>
+  <% @clinics.each do |clinic| %>
+    <tr>
+      <td><%= clinic.name %>
+      <td><%= clinic.location %>
+      <td><%= link_to "Edit", edit_clinic_path(clinic.id) %></td>
+      <td><%= link_to "Delete", clinic, method: :delete %></td>
+    </tr>
+  <% end %>
+</table>
