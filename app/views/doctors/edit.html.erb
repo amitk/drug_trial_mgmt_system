@@ -21,6 +21,10 @@
       <%= f.label :contact_no %>
       <%= f.text_field(:contact_no, type: :integer) %>
     </p>
+    <p>
+      <%= f.label "Clinics" %>
+      <%= f.collection_select(:clinic_ids, Clinic.all, :id, :name, { selected: @clinic_ids }, { multiple: true }) %>
+    </p>
   </ul>
   <%= f.submit :update %>
 <% end %>

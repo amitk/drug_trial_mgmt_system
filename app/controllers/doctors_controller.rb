@@ -6,12 +6,11 @@ class DoctorsController < ApplicationController
   end
 
   def new
-    @doctor ||= Doctor.new
-    @var = "hello"
-
+    @doctor = Doctor.new
   end
 
   def edit
+    @clinic_ids = @doctor.clinics.pluck(:id)
   end
 
   def show
@@ -42,7 +41,7 @@ class DoctorsController < ApplicationController
   private
 
   def permit_params
-    params.require(:doctor).permit(:name, :gender, :contact_no)
+    params.require(:doctor).permit(:name, :gender, :contact_no, clinic_ids: [])
   end
 
   def find_doctor

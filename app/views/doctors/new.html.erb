@@ -21,6 +21,10 @@
       <%= f.label :contact_no %>
       <%= f.number_field(:contact_no) %>
     </p>
+    <p>
+      <%= f.label "Clinics" %>
+      <%= f.collection_select(:clinic_ids, Clinic.all, :id, :name, {}, { multiple: true }) %>
+    </p>
   </ul>
   <%= f.submit :create %>
 <% end %>

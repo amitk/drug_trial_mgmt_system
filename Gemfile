@@ -34,6 +34,7 @@ group :development, :test do
   gem 'pry', '~> 0.13.1'
   # Add Rspec as testing framework
   gem 'rspec-rails', '~> 4.0.1'
+  gem 'fakerbot', '~> 0.4.4'
 end
 
 group :development do

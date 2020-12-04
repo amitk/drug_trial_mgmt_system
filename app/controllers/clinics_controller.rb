@@ -14,13 +14,15 @@ class ClinicsController < ApplicationController
   end
 
   def edit
-
+    @doctor_ids = @clinic.doctors.pluck(:id)
   end
 
   def create
-    binding.pry
     @clinic = Clinic.new(permit_params)
 
+    params[:clinic][:doctor_ids].each do |id|
+      @clinic.doctors << Doctor.find(id) if id.present?
+    end
     if @clinic.save
       redirect_to clinics_path
     else

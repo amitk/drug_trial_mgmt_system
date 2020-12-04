@@ -8,7 +8,6 @@
     <%end%>
   </ul>
 <%end%>
-<%= select_tag "colors", raw("<option>Red</option><option>Green</option><option>Blue</option>") %>
 <%= form_with(model: @clinic, local: true) do |f| %>
     <p>
       <%= f.label :name %>
@@ -20,7 +19,7 @@
     </p>
     <p>
       <%= f.label "Doctors" %>
-      <%= f.select("doctor_ids[]", options_for_select(@doctors.collect{|doc| [doc.name, doc.id]}, @clinic.doctors.collect{|doc| [doc.id]}), {:multiple => true, include_blank: true }) %> 
+      <%= f.collection_select(:doctor_ids, Doctor.all, :id, :name, { include_blank: false }, { multiple: true }) %>
     </p>
   </ul>
   <%= f.submit :create %>

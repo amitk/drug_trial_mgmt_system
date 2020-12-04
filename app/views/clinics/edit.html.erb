@@ -1,0 +1,26 @@
+<h1> New Clinic Page </h1>
+
+<% if @clinic.errors.any? %>
+  <h4> Errors </h4>
+  <ul>
+    <% @clinic.errors.full_messages.each do |message|%>
+      <li><%= message %> </li>
+    <%end%>
+  </ul>
+<%end%>
+<%= form_with(model: @clinic, url: clinic_path(@clinic), method: 'patch', local: true) do |f| %>
+    <p>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </p>
+    <p>
+      <%= f.label :location %>
+      <%= f.text_field :location %>
+    </p>
+    <p>
+      <%= f.label "Doctors" %>
+      <%= f.collection_select(:doctor_ids, Doctor.all, :id, :name, { selected: @doctor_ids }, { multiple: true }) %>
+    </p>
+  </ul>
+  <%= f.submit :update %>
+<% end %>
