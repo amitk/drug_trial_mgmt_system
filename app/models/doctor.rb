@@ -1,5 +1,6 @@
-class Doctor < ApplicationRecord
+# frozen_string_literal: true
 
+class Doctor < ApplicationRecord
   has_and_belongs_to_many :clinics
 
   validates :name, :contact_no, :gender, presence: true
@@ -11,6 +12,6 @@ class Doctor < ApplicationRecord
   private
 
   def add_initals
-    self.name = 'Dr. ' + self.name unless self.name =~ /\ADr\.\s.*/
+    self.name = "Dr. #{name}" unless name =~ /\ADr\.\s.*/
   end
 end

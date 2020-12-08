@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Arm < ApplicationRecord
   belongs_to :clinic, optional: true
   has_many :patients

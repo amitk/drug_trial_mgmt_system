@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class ClinicsController < ApplicationController
-  before_action :find_clinic, only: [:show, :edit, :update, :destroy]
+  before_action :find_clinic, only: %i[show edit update destroy]
 
   def index
     @clinics = Clinic.all
@@ -10,8 +12,7 @@ class ClinicsController < ApplicationController
     @doctors = Doctor.all
   end
 
-  def show
-  end
+  def show; end
 
   def edit
     @doctor_ids = @clinic.doctors.pluck(:id)
