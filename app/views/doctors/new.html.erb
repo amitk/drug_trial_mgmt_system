@@ -1,0 +1,30 @@
+<h1> New Doctors Page </h1>
+
+<% if @doctor.errors.any? %>
+  <h4> Errors </h4>
+  <ul>
+    <% @doctor.errors.full_messages.each do |message|%>
+      <li><%= message %> </li>
+    <%end%>
+  </ul>
+<%end%>
+<%= form_with(model: @doctor, local: true) do |f| %>
+    <p>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </p>
+    <p>
+      <%= f.label :gender %>
+      <%= f.select(:gender, [['Male', 'male'], ['Female', 'female']]) %>
+    </p>
+    <p>
+      <%= f.label :contact_no %>
+      <%= f.number_field(:contact_no) %>
+    </p>
+    <p>
+      <%= f.label "Clinics" %>
+      <%= f.collection_select(:clinic_ids, Clinic.all, :id, :name, {}, { multiple: true }) %>
+    </p>
+  </ul>
+  <%= f.submit :create %>
+<% end %>

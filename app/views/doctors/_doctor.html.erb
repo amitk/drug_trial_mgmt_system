@@ -1,0 +1,7 @@
+<tr>
+  <td><%= "#{doctor.name}" %></td>
+  <td><%= "#{doctor.gender}" %></td>
+  <td><%= "#{doctor.contact_no}" %></td>
+  <td><%= link_to :edit, edit_doctor_path(doctor.id) %></td>
+  <td><%= link_to "Delete", doctor, method: :delete %></td>
+</tr>

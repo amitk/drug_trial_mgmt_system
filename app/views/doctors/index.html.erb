@@ -1,0 +1,14 @@
+<h1> DOCTORS </h1>
+<p style="margin: 5px;"><%= link_to 'Add doctor', new_doctor_path%></p>
+<table style="border: 1px solid #000000; margin: 5px; text-align: center;">
+  <tr>
+    <th>Name</th>
+    <th>Gender</th>
+    <th>Contact No</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+  <% @doctors.each do |doctor| %>
+    <%= render partial: 'doctor', locals: { doctor: doctor } %>
+  <% end %>
+</table>

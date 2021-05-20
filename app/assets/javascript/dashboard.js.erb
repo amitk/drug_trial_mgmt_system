@@ -1,0 +1,5 @@
+var host = "<%= ENV['HOST'] %>"
+
+function redirect(loc) {
+  location.href =  `${host}/${loc}`
+}

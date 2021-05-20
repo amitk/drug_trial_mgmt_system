@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DrugTrailMgmtSys</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => "reload" %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => "reload" %>
+  </head>
+
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary navbar-fixed-top">
+  <a class="navbar-brand" href="/">Drug Trial Management System</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href=<%= clinics_path %>>Clinics</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href=<%= doctors_path %>>Doctors</a>
+      </li>
+    </ul>
+  </div>
+  </nav>
+  <div class="container" style="padding-top: 50px;">
+    <%= yield %>
+  </div>
+  </body>
+  <footer style="bottom: 0; width: 100%; position: fixed">
+    <h3 style="background-color: skyblue; text-align: center;"> &copy Training </h3>
+  </footer>
+</html>

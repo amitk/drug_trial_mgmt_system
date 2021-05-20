@@ -1,0 +1,30 @@
+<h1> Edit Doctor </h1>
+<%= link_to :back, doctors_path %>
+<% if @doctor.errors.any? %>
+  <h4> Errors </h4>
+  <ul>
+    <% @doctor.errors.full_messages.each do |message|%>
+      <li><%= message %> </li>
+    <%end%>
+  </ul>
+<%end%>
+<%= form_with(model: @doctor, url: doctor_path(@doctor), method: 'patch', local: true) do |f| %>
+    <p>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </p>
+    <p>
+      <%= f.label :gender %>
+      <%= f.select(:gender, [['Male', 'male'], ['Female', 'female']]) %>
+    </p>
+    <p>
+      <%= f.label :contact_no %>
+      <%= f.text_field(:contact_no, type: :integer) %>
+    </p>
+    <p>
+      <%= f.label "Clinics" %>
+      <%= f.collection_select(:clinic_ids, Clinic.all, :id, :name, { selected: @clinic_ids }, { multiple: true }) %>
+    </p>
+  </ul>
+  <%= f.submit :update %>
+<% end %>
