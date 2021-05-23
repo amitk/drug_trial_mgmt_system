@@ -1,14 +1,14 @@
-<h1> DOCTORS </h1>
-<p style="margin: 5px;"><%= link_to 'Add doctor', new_doctor_path%></p>
-<table style="border: 1px solid #000000; margin: 5px; text-align: center;">
-  <tr>
-    <th>Name</th>
-    <th>Gender</th>
-    <th>Contact No</th>
-    <th>Edit</th>
-    <th>Delete</th>
-  </tr>
-  <% @doctors.each do |doctor| %>
-    <%= render partial: 'doctor', locals: { doctor: doctor } %>
-  <% end %>
-</table>
+<div class="container">
+  <div class="row border-bottom mb-2">
+    <p class="fs-2 col">Doctors</p>
+    <%=link_to raw("<button class=\"btn btn-primary\"> Add Doctor <i class=\"fa fa-plus-square\"></i></button>"), new_doctor_path, class: "col text-end" %>
+  </div>
+  <table class="table table-bordered">
+    <%= render partial: 'shared/table_header', locals: { headers: ['Name', 'Gender', 'Contact No', 'Edit', 'Delete'] } %>
+    <tbody>
+    <% @doctors.each do |doctor| %>
+      <%= render partial: 'doctor', locals: { doctor: doctor } %>
+    <% end %>
+    </tbody>
+  </table>
+</div>

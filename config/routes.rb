@@ -3,12 +3,16 @@
 Rails.application.routes.draw do
   root 'dashboard#index'
   resources :doctors
-  resources :clinics do
+  resources :clinics, except: [:show] do
     resources :arms, shallow: true
   end
 
-  resources :studies
-  resources :sites
+  resources :studies, only: [:index] do
+    collection do
+      get :fetch
+    end
+  end
+  resources :sites, only: [:index]
   resources :arms, only: [] do
     resources :patients, shallow: true
   end

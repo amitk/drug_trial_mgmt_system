@@ -20,15 +20,21 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href=<%= clinics_path %>>Clinics</a>
+        <a class="nav-link" href=<%= studies_path %>>Studies</a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href=<%= sites_path %>>Sites</a>
+      </li>            
+      <li class="nav-item">
         <a class="nav-link" href=<%= doctors_path %>>Doctors</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href=<%= clinics_path %>>Clinics</a>
       </li>
     </ul>
   </div>
   </nav>
-  <div class="container" style="padding-top: 50px;">
+  <div class="container-fluid" style="padding-top: 50px;">
     <%= yield %>
   </div>
   </body>

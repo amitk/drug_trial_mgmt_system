@@ -33,7 +33,12 @@ gem 'bootstrap', '~> 5.0.1'
 gem 'jquery-rails'
 # gem for font-awesome icons in rails
 gem "font-awesome-rails"
+# gem to make http request
+gem 'faraday'
+# gem for pagination
+gem 'kaminari'
 group :development, :test do
+  gem 'pry'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end

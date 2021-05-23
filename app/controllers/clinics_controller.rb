@@ -4,15 +4,13 @@ class ClinicsController < ApplicationController
   before_action :find_clinic, only: %i[show edit update destroy]
 
   def index
-    @clinics = Clinic.all
+    @clinics = Clinic.page(params[:page] || 1)
   end
 
   def new
     @clinic = Clinic.new
     @doctors = Doctor.all
   end
-
-  def show; end
 
   def edit
     @doctor_ids = @clinic.doctors.pluck(:id)

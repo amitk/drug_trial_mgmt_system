@@ -1,25 +1,19 @@
 <div class="row border-bottom mb-2">
-  <h1 class="col"> CLINICS </h1>
+  <h2 class="col"> CLINICS </h2>
   <%= link_to raw("<button class=\"btn btn-primary\"> Add Clinic <i class=\"fa fa-plus-square\"></i></i></button>"), new_clinic_path, class: "col text-end"%>
 </div>
 
 <table class="table table-bordered">
-  <thead>
-    <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Location</th>
-      <th scope="col">Edit</i></th>
-      <th scope="col">Delete</th>
-    </tr>
-  </thead>
+  <%= render partial: 'shared/table_header', locals: { headers: ['Name', 'Location', 'Edit', 'Delete'] } %>
   <tbody>
     <% @clinics.each do |clinic| %>
       <tr id=<%= clinic.id %>>
         <td><%= clinic.name %>
         <td><%= clinic.location %>
         <td><%= link_to raw("<button class=\"btn btn-primary\"><i class=\"fa fa-pencil\"></i></button>"), edit_clinic_path(clinic.id) %></td>
-        <td><%= link_to raw("<button class=\"btn btn-danger\"><i class=\"fa fa-trash\"></i></button>"), clinic, method: :delete,  remote: true %></td>
+        <td><%= link_to raw("<button class=\"btn btn-danger\"><i class=\"fa fa-trash\"></i></button>"), clinic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+<%= paginate @clinics %>
