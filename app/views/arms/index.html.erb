@@ -1,0 +1,17 @@
+<div class="row border-bottom mb-2">
+  <h2 class="col"> ARMS (<%= @clinic.name %>)</h2>
+  <%= render partial: 'shared/add_record', locals: { entity: 'Arm', path: new_clinic_arm_path(@clinic.id) } %>
+</div>
+
+<table class="table table-bordered">
+  <%= render partial: 'shared/table_header', locals: { headers: ['NAME', 'LIMIT', 'EDIT', 'DELETE', 'PATIENTS']} %>
+  <tbody>
+    <% @arms.each do |arm| %>
+      <td class="text-center"><%= arm.name %></td>
+      <td class="text-center"><%= arm.limit %></td>
+      <td class="text-center"><%= link_to raw("<button class=\"btn btn-primary\"><i class=\"fa fa-pencil\"></i></button>"), edit_arm_path(arm.id) %></td>
+      <td class="text-center"><%= link_to raw("<button class=\"btn btn-danger\"><i class=\"fa fa-trash\"></i></button>"), arm, method: :delete, data: { confirm: 'Will destory all partients, in this arm. Want to continue?'} %></td>
+      <td class="text-center"><%= link_to raw("<button class=\"btn btn-secondary\"><i class=\"fa fa-user\"></i> #{arm.patients.count}</button>"), arm_patients_path(arm.id) %></td>
+    <% end %>
+  </tbody>
+</table>

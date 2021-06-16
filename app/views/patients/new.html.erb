@@ -1,15 +1,21 @@
-<% if @doctor.errors.any? %>
-  <%= render partial: 'shared/errors', locals: { subject: @doctor } %>
+<% if @patient.errors.any? %>
+  <%= render partial: 'shared/errors', locals: { subject: @patient } %>
 <%end%>
 <div class="card m-4">
   <div class="card-header">
-    <p class="fs-2">New Doctor's Form</p>
+    <p class="fs-2">New Patient's Form</p>
   </div>
-  <%= form_with(model: @doctor, local: true) do |f| %>
+  <%= form_with(model: @patient, url: "/arms/#{@arm.id}/patients", local: true) do |f| %>
     <div class="card-body">
       <div class="mb-3 row">
-        <%= f.label "Name:", { class: "form-label" } %>
-        <%= f.text_field :name, { class: "form-control" } %>
+        <div class="col">
+          <%= f.label "Name:", { class: "form-label" } %>
+          <%= f.text_field :name, { class: "form-control" } %>
+        </div>
+        <div class="col">
+          <%= f.label "Age:", { class: "form-label"} %>
+          <%= f.number_field :age, { class: "form-control"} %>
+        </div>
       </div>
       <div class="mb-3 row">
         <div class="col">
@@ -21,14 +27,10 @@
           <%= f.number_field :contact_no, { class: "form-control"} %>
         </div>
       </div>
-      <div class="mb-3 row">
-        <%= f.label "Clinics" %>
-        <%= f.collection_select(:clinic_ids, Clinic.all, :id, :name, {}, { multiple: true }) %>
-      </div>
     </div>
     <div class="card-footer">
       <%= f.submit 'Create', { class: "btn btn-outline-primary"} %>
-      <%= link_to 'Cancel', clinics_path, { class: "btn btn-outline-secondary"} %>
+      <%= link_to 'Cancel', arm_patients_path(@arm.id), { class: "btn btn-outline-secondary"} %>
     </div>
 <% end %>
 </div>

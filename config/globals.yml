@@ -1,5 +1,5 @@
 development:
-  HOST: 'http://localhost:3000'
+  HOST: 'http://localhost:3001'
   STUDY_SITE_HOST: 'http://localhost:3001'
 
 test:

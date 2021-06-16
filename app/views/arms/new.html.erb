@@ -1,0 +1,26 @@
+<% if @arm.errors.any? %>
+  <%= render partial: 'shared/errors', locals: { subject: @arm } %>
+<%end%>
+<div class="card m-4">
+  <div class="card-header">
+    <p class="fs-2">New Arm's Form</p>
+  </div>
+  <%= form_with(model: @arm, url: "/clinics/#{@clinic.id}/arms", local: true) do |f| %>
+    <div class="card-body">
+      <div class="mb-3 row">
+        <div class="col">
+          <%= f.label "Name:", { class: "form-label" } %>
+          <%= f.text_field :name, { class: "form-control" } %>
+        </div>
+        <div class="col">
+          <%= f.label "Limit", { class: "form-label" } %>
+          <%= f.number_field :limit, { class: "form-control" } %>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <%= f.submit 'Create', { class: "btn btn-outline-primary"} %>
+      <%= link_to 'Cancel', clinic_arms_path(@clinic.id), { class: "btn btn-outline-secondary"} %>
+    </div>
+<% end %>
+</div>
