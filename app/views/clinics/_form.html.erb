@@ -1,0 +1,23 @@
+<div class="card">
+<%= form_with(model: clinic, url: url, id: 'new_clinic') do |f| %>
+  <div class="card-body">
+      <div class="mb-3 row">
+        <%= f.label "Name:", { class: "form-label col-2" } %>
+        <%= f.text_field :name, { class: "form-control col-10" }%>
+      </div>
+      <div class="mb-3 row">
+        <%= f.label 'Location:', { class: "form-label col-sm-2" }  %>
+        <%= f.text_field :location, { class: "form-control col-sm-10"} %>
+      </div>
+      <div class="mb-3 row">
+        <%= f.label "Doctors:", { class: "form-label col-sm-2" } %>
+        <%= f.collection_select(:doctor_ids, Doctor.all, :id, :name, { include_blank: false }, { multiple: true, class: "form-select col-sm-10", size: 3 }) %>
+      </div>
+      <div class="card-footer">
+        <%= f.submit 'Create', { class: "btn btn-outline-primary"} %>
+        <%= link_to 'Cancel', clinics_path, { class: "btn btn-outline-secondary"} %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

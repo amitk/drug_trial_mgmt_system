@@ -8,19 +8,4 @@
     <%end%>
   </ul>
 <%end%>
-<%= form_with(model: @clinic, url: clinic_path(@clinic), method: 'patch', local: true) do |f| %>
-    <p>
-      <%= f.label :name %>
-      <%= f.text_field :name %>
-    </p>
-    <p>
-      <%= f.label :location %>
-      <%= f.text_field :location %>
-    </p>
-    <p>
-      <%= f.label "Doctors" %>
-      <%= f.collection_select(:doctor_ids, Doctor.all, :id, :name, { selected: @doctor_ids }, { multiple: true }) %>
-    </p>
-  </ul>
-  <%= f.submit :update %>
-<% end %>
+<%= render partial: 'form', locals: { clinic: @clinic, url: clinics_path(@clinic.id) } %>
