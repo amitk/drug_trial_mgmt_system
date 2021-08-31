@@ -5,5 +5,5 @@
   <div class="card-header">
     <p class="fs-2">New Arm's Form</p>
   </div>
-  <%= render partial: 'form', locals: { arm: @arm, url: url } %>
+  <%= render partial: 'form', locals: { arm: @arm, url: clinic_arms_path(@clinic.id) } %>
 </div>
