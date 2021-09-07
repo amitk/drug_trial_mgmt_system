@@ -2,7 +2,7 @@
 
 class PatientsController < ApplicationController
   before_action :find_arm, except: [:show, :destroy]
-  before_action :find_patient, only: [:edit, :destroy]
+  before_action :find_patient, only: [:edit, :destroy, :feedback]
   
   def index
     @patients = @arm.patients.page(params[:page] || 1)
@@ -10,6 +10,10 @@ class PatientsController < ApplicationController
 
   def new
     @patient = @arm.patients.new
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def edit
@@ -22,6 +26,9 @@ class PatientsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def feedback
   end
 
   def update

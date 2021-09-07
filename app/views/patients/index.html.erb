@@ -11,12 +11,17 @@
         <td class="text-center"><%= patient.contact_no %></td>
         <td class="text-center"><%= patient.gender %></td>
         <td class="text-center"><%= patient.age %></td>
-        <td class="text-center"><%= link_to raw("<button class=\"btn btn-primary\"><i class=\"fa fa-comment\"></i></button>"), edit_patient_path(patient) %></td>
-        <td class="text-center"><%= link_to raw("<button class=\"btn btn-primary\"><i class=\"fa fa-pencil\"></i></button>"), edit_patient_path(patient) %></td>
+        <td class="text-center"><%= link_to raw("<button class=\"btn btn-primary\"><i class=\"fa fa-comment\"></i></button>"), feedback_patient_path(patient.id), remote: true %></td>
+        <td class="text-center"><%= link_to raw("<button class=\"btn btn-primary\"><i class=\"fa fa-pencil-alt\"></i></button>"), edit_patient_path(patient) %></td>
         <td class="text-center"><%= link_to raw("<button class=\"btn btn-danger\"><i class=\"fa fa-trash\"></i></button>"), patient, method: :delete %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content"></div>
+  </div>
+</div>
 

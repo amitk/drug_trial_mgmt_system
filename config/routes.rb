@@ -12,8 +12,16 @@ Rails.application.routes.draw do
       get :fetch
     end
   end
-  resources :sites, only: [:index]
+  resources :sites, only: [:index] do
+    collection do
+      get :fetch
+    end
+  end
   resources :arms, only: [] do
-    resources :patients, shallow: true
+    resources :patients, shallow: true do
+      member do
+        get :feedback
+      end
+    end
   end
 end

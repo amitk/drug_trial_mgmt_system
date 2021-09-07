@@ -10,7 +10,7 @@
       <tr id=<%= clinic.id %>>
         <td class="text-center"><%= clinic.name %>
         <td class="text-center"><%= clinic.location %>
-        <td class="text-center"><%= link_to raw("<button class=\"btn btn-primary\"><i class=\"fa fa-pencil\"></i></button>"), edit_clinic_path(clinic.id) %></td>
+        <td class="text-center"><%= link_to raw("<button class=\"btn btn-primary\"><i class=\"fa fa-pencil-alt\"></i></button>"), edit_clinic_path(clinic.id) %></td>
         <td class="text-center"><%= link_to raw("<button class=\"btn btn-danger\"><i class=\"fa fa-trash\"></i></button>"), clinic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <td class="text-center"><%= link_to raw("<button class=\"btn btn-secondary\"><i class=\"fa fa-angle-right\"></i></button>"), clinic_arms_path(clinic.id) %></td>
       </tr>

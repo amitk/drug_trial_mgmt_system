@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="row border-bottom mb-2">
+    <p class="fs-2 col">SITES</p>
+    <%=link_to raw("<button class=\"btn btn-primary\"> Sync <i class=\"fa fa-arrow-circle-down\"></i></button>"), fetch_sites_path, class: "col text-end" %>
+  </div>
+  <table class="table table-bordered">
+    <%= render partial: "shared/table_header", locals: { headers: ["UUID", "NAME", "DRUG", "SPONSOR"] } %>
+    <%= render partial: "shared/table_body", locals: { instances: @studies, rows: [:uuid, :name, :drug, :sponsor]} %>
+  </table>
+</div>

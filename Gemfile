@@ -30,9 +30,10 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 # gems for bootstrap and javascript through asset pipeline
 gem 'bootstrap', '~> 5.0.1'
+gem 'popper_js'
 gem 'jquery-rails'
 # gem for font-awesome icons in rails
-gem "font-awesome-rails"
+gem 'font_awesome5_rails'
 # gem to make http request
 gem 'faraday'
 # gem for pagination
