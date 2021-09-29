@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class ArmsController < ApplicationController
   before_action :find_clinic
-  before_action :find_arm, only: [:update, :destroy]
+  before_action :find_arm, only: %i[update destroy]
   def index
     @arms = Arm.where(clinic_id: params[:clinic_id]).page(params[:page] || 1)
   end
@@ -30,9 +32,7 @@ class ArmsController < ApplicationController
     end
   end
 
-  def destroy
-
-  end
+  def destroy; end
 
   private
 

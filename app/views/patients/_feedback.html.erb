@@ -2,15 +2,27 @@
   <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 </div>
-<div class="modal-body text-center">
-  <button class="btn btn-primary"><i class="fa fa-sad-tear"></i></button>
-  <button class="btn btn-primary"><i class="fa fa-frown"></i></button>
-  <button class="btn btn-primary"><i class="fa fa-meh"></i></button>
-  <button class="btn btn-primary"><i class="fa fa-smile"></i></button>
-  <button class="btn btn-primary"><i class="fa fa-smile-beam"></i></button>
-</div>
-<div class="modal-footer">
-  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-  <button type="button" class="btn btn-primary">Save changes</button>
-</div>
+<%= form_with(model: @patient, method: :patch, format: :js) do |f| %>
+  <div class="modal-body text-center">
+    <div class="btn-group-vertical" role="group">
+      <%= f.radio_button :feedback, "pain", { class: "btn-check", id: "pain"} %>
+      <label class="btn btn-outline-primary" for="pain">TOO MUCH PAIN <i class="fa fa-sad-tear"></i></label>
 
+      <%= f.radio_button :feedback, "uneasy", { class: "btn-check", id: "uneasyness"} %>
+      <label class="btn btn-outline-primary" for="uneasyness">UNEASYNESS <i class="fa fa-frown"></i></label>
+
+      <%= f.radio_button :feedback, "normal", { class: "btn-check", id: "normal"} %>
+      <label class="btn btn-outline-primary" for="normal">NORMAL <i class="fa fa-meh"></i></label>
+
+      <%= f.radio_button :feedback, "good", { class: "btn-check", id: "well"} %>
+      <label class="btn btn-outline-primary" for="well">FEELING WELL <i class="fa fa-smile"></i></label>
+
+      <%= f.radio_button :feedback, "awsome", { class: "btn-check", id: "awsome"} %>
+      <label class="btn btn-outline-primary" for="awsome">FEELING AWSOME <i class="fa fa-smile-beam"></i></label>
+    </div>  
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+    <button type="button" class="btn btn-primary" id="feedback_update">Save changes</button>
+  </div>
+<% end %>

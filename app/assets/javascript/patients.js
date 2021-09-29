@@ -1,5 +1,5 @@
-$(document).ready(function() {
-  $('#feedbackModal').on('click', () => {
-    alert('I am clicked');
+$(document).on('click', '#exampleModal', function() {
+  console.log('hello world')
+  $('#exampleModal').one('show.bs.modal', () => {
   })
 })

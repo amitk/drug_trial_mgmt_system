@@ -1,5 +1,6 @@
-class StudiesController < ApplicationController
+# frozen_string_literal: true
 
+class StudiesController < ApplicationController
   def index
     @studies = Study.all
   end

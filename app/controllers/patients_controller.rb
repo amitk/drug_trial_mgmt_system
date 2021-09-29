@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 class PatientsController < ApplicationController
-  before_action :find_arm, except: [:show, :destroy]
-  before_action :find_patient, only: [:edit, :destroy, :feedback]
-  
+  before_action :find_arm, except: %i[show destroy]
+  before_action :find_patient, only: %i[edit destroy feedback update]
+
   def index
     @patients = @arm.patients.page(params[:page] || 1)
   end
@@ -16,8 +16,7 @@ class PatientsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @patient = @arm.patients.new(permit_params)
@@ -28,10 +27,15 @@ class PatientsController < ApplicationController
     end
   end
 
-  def feedback
-  end
+  def feedback; end
 
   def update
+    @patient.update(permit_update_params)
+    redirect_to arm_patients_path(@patient.arm.id)
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def destroy
@@ -42,6 +46,10 @@ class PatientsController < ApplicationController
 
   def permit_params
     params.require(:patient).permit(:name, :contact_no, :gender, :age)
+  end
+
+  def permit_update_params
+    params.require(:patient).permit(:name, :contact_no, :gender, :age, :feedback)
   end
 
   def find_arm

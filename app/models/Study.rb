@@ -1,8 +1,9 @@
-class Study < ApplicationRecord
+# frozen_string_literal: true
 
+class Study < ApplicationRecord
   def self.obtain
     response = FARADAY.get do |request|
-      request.headers = { 'Content-Type' => 'application/json'}
+      request.headers = { 'Content-Type' => 'application/json' }
       request.url ENV['STUDY_SITE_HOST']
     end
 
