@@ -4,9 +4,9 @@ name: CI - To check on linters and run test
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: [ $default-branch ]
+    branches: [ master ]
   pull_request:
-    branches: [ $default-branch ]
+    branches: [ master ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
