@@ -32,10 +32,6 @@ class PatientsController < ApplicationController
   def update
     @patient.update(permit_update_params)
     redirect_to arm_patients_path(@patient.arm.id)
-    respond_to do |format|
-      format.html
-      format.js
-    end
   end
 
   def destroy

@@ -1,5 +1,15 @@
 $(document).on('click', '#exampleModal', function() {
-  console.log('hello world')
-  $('#exampleModal').one('show.bs.modal', () => {
+  $('#feedback_update').one('click', (evt) => {
+    evt.stopImmediatePropagation();
+    let patient_id = $('#feedback_update').data('patient-id')
+    $.ajax({
+      type: 'PATCH',
+      url: `/patients/${patient_id}`,
+      data: {
+        "patient": {
+          "feedback": $('input[type=radio]:checked').val()
+        }
+      },
+    })
   })
 })

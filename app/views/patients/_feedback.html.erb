@@ -8,8 +8,8 @@
       <%= f.radio_button :feedback, "pain", { class: "btn-check", id: "pain"} %>
       <label class="btn btn-outline-primary" for="pain">TOO MUCH PAIN <i class="fa fa-sad-tear"></i></label>
 
-      <%= f.radio_button :feedback, "uneasy", { class: "btn-check", id: "uneasyness"} %>
-      <label class="btn btn-outline-primary" for="uneasyness">UNEASYNESS <i class="fa fa-frown"></i></label>
+      <%= f.radio_button :feedback, "uneasy", { class: "btn-check", id: "uneasy"} %>
+      <label class="btn btn-outline-primary" for="uneasy">UNEASYNESS <i class="fa fa-frown"></i></label>
 
       <%= f.radio_button :feedback, "normal", { class: "btn-check", id: "normal"} %>
       <label class="btn btn-outline-primary" for="normal">NORMAL <i class="fa fa-meh"></i></label>
@@ -23,6 +23,6 @@
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-    <button type="button" class="btn btn-primary" id="feedback_update">Save changes</button>
+    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="feedback_update" data-patient-id=<%= @patient.id %>>Save changes</button>
   </div>
 <% end %>
