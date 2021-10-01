@@ -6,9 +6,9 @@ class Patient < ApplicationRecord
   validate :patient_limit, if: :new_record?
 
   def patient_limit
-    if arm.patients.count == arm.limit
-      errors.add(:base,
-                 "Cannot add more patients to the given arm, it's limit is #{arm.limit}")
-    end
+    return unless arm.patients.count == arm.limit
+
+    errors.add(:base,
+               "Cannot add more patients to the given arm, it's limit is #{arm.limit}")
   end
 end
