@@ -14,9 +14,5 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - uses: ruby/setup-ruby@v1
-
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
-
+        with:
+          bundler-cache: true
