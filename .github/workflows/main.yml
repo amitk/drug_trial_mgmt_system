@@ -19,10 +19,12 @@ jobs:
   
   linters:
     needs: build
+    runs-on: ubuntu-latest
     steps:
       - run: bundle exec rubocop
 
   test:
     needs: build
+    runs-on: ubuntu-latest
     steps:
       - run: bundle exec rspec
