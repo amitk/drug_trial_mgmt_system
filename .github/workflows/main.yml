@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  build-n-test:
     runs-on: ubuntu-latest
 
     steps:
@@ -16,15 +16,5 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
-  
-  linters:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
       - run: bundle exec rubocop
-
-  test:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
       - run: bundle exec rspec
