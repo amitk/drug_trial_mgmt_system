@@ -13,7 +13,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-      - uses: ruby/ruby-setup@v1
+      - uses: ruby/setup-ruby@v1
 
       - name: Run a multi-line script
         run: |
