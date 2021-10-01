@@ -16,3 +16,13 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           bundler-cache: true
+  
+  linters:
+    needs: build
+    steps:
+      - run: bundle exec rubocop
+
+  test:
+    needs: build
+    steps:
+      - run: bundle exec rspec
