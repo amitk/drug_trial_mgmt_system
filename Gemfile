@@ -48,7 +48,6 @@ group :development, :test do
   gem 'rubocop', '~> 1.22', require: false
   gem 'rubocop-performance'
   gem 'rubocop-rails', require: false
-  gem 'rubocop-discourse'
 end
 
 group :development do
