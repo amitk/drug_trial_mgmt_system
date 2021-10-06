@@ -41,8 +41,8 @@ jobs:
       - name: RSpec
         run: bundle exec rspec
 
-      env:
-        RAILS_ENV: test
-        POSTGRES_HOST: localhost
-        POSTGRES_PORT: 5432
+    env:
+      RAILS_ENV: test
+      POSTGRES_HOST: localhost
+      POSTGRES_PORT: 5432
 
