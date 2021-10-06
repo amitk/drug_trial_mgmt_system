@@ -10,6 +10,16 @@ on:
 jobs:
   build-n-test:
     runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
     env:
       RAILS_ENV: test
 
@@ -22,5 +32,13 @@ jobs:
       - name: RuboCop
         run: bundle exec rubocop
       
+      - name: Create DB in postgres
+        run: bundle exec rake db:create
+
+      - name: Run migrations in postgres
+        run: bundle exec rake db:migrate
+      
       - name: RSpec
         run: bundle exec rspec
+
+
