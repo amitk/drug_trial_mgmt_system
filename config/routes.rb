@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   resources :studies, only: [:index] do
     collection do
-      get :fetch
+      post :pushed
     end
   end
   resources :sites, only: [:index] do
