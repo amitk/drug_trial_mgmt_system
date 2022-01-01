@@ -7,3 +7,8 @@ test:
   HOST: 'http://localhost:3000'
   STUDY_SITE_HOST: 'http://localhost:3000'
   PORT: '3002'
+
+production:
+  HOST: 'xxx'
+  STUDY_SITE_HOST: 'yyy'
+  PORT: '3000'
