@@ -15,8 +15,8 @@
 require("@rails/ujs").start();
 require("@rails/activestorage").start();
 require("channels");
-import jquery from 'jquery';
-window.$ = window.jquery = jquery;
+// import jquery from 'jquery';
+// window.$ = window.jquery = jquery;
 
-import "bootstrap";
-import "../stylesheets/application";
+// import "bootstrap";
+// import "../stylesheets/application";
