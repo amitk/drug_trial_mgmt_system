@@ -18,5 +18,4 @@ require("channels");
 import jquery from 'jquery';
 window.$ = window.jquery = jquery;
 
-import "bootstrap";
-import "../stylesheets/application";
+// import "../assets/stylesheets/application";
