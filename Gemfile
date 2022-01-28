@@ -48,6 +48,9 @@ group :development, :test do
   gem 'rubocop', '~> 1.22', require: false
   gem 'rubocop-performance'
   gem 'rubocop-rails', require: false
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'rails-controller-testing'
 end
 
 group :development do

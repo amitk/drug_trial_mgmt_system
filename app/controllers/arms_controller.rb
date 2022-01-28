@@ -12,7 +12,7 @@ class ArmsController < ApplicationController
   end
 
   def edit
-    @arm = Arm.find(params[:id])
+    @arm = Arm.find_by(id: params[:id])
   end
 
   def create
@@ -45,6 +45,6 @@ class ArmsController < ApplicationController
   end
 
   def permit_params
-    params.require(:arm).permit(:name, :limit)
+    params.require(:arm).permit(:name, :limit) if params[:arm].present?
   end
 end

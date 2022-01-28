@@ -19,8 +19,8 @@ class ClinicsController < ApplicationController
   def create
     @clinic = Clinic.new(permit_params)
     params[:clinic][:doctor_ids].each do |id|
-      @clinic.doctors << Doctor.find(id) if id.present?
-    end
+      @clinic.doctors << Doctor.find_by(id: id) if id.present?
+    end if params[:clinic][:doctor_ids].present?
 
     if @clinic.save
       redirect_to clinics_path
@@ -47,7 +47,7 @@ class ClinicsController < ApplicationController
   private
 
   def permit_params
-    params.require(:clinic).permit(:name, :location, doctor_ids: [])
+    params.require(:clinic).permit(:name, :location, doctor_ids: []) if params[:clinic].present?
   end
 
   def find_clinic

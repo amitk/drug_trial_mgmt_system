@@ -30,8 +30,11 @@ class PatientsController < ApplicationController
   def feedback; end
 
   def update
-    @patient.update(permit_update_params)
-    redirect_to arm_patients_path(@patient.arm.id)
+    if @patient.update(permit_update_params)
+      redirect_to arm_patients_path(@patient.arm.id)
+    else
+      render :edit
+    end
   end
 
   def destroy

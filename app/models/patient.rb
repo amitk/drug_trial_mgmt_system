@@ -3,6 +3,7 @@
 class Patient < ApplicationRecord
   belongs_to :arm
 
+  validates :name, :contact_no, :age, presence: true
   validate :patient_limit, if: :new_record?
 
   def patient_limit
